@@ -10,6 +10,8 @@ import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for Flutter app
+# Download model files if not present
+download_models.download_models()
 
 # Define model directory
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "detr_model")

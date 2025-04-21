@@ -1,0 +1,21 @@
+import os
+import gdown
+
+def download_models():
+    model_dir = os.path.join(os.path.dirname(__file__), "detr_model")
+    if not os.path.exists(model_dir):
+        os.makedirs(model_dir)
+        # Replace with your Google Drive file IDs
+        gdown.download(
+            "https://drive.google.com/file/d/1jNPl7wvie1aJ_EjIqwFV59LJYSSyC7FN/view?usp=sharing",
+            os.path.join(model_dir, "config.json"),
+            quiet=False
+        )
+        gdown.download(
+            "https://drive.google.com/file/d/18tt0sAzkxdsAmjpbsWaKg1a5bpPBNqMv/view?usp=sharing",
+            os.path.join(model_dir, "model.safetensors"),
+            quiet=False
+        )
+
+if __name__ == "__main__":
+    download_models()
